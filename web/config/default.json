@@ -1,0 +1,29 @@
+{
+	"crypt": {
+		"cryptSalt": "waeFormsCanteraTech",
+		"cryptPassword": "tapirtechCanteraTech"
+	},
+	//"database" : "mongodb://cantera:tapirtech@canteratech.ddns.net:19779/waeForms", //srvfiles	
+	"database": "mongodb://localhost:27017/waeForms",
+	"mediaUrl": "c:\\temp\\waeForms\\",
+	"deleteGhostFiles": true,
+	"deleteGhostFilesCron" : "0 10,22 * * *",
+	"tokenExpiry": 100000,
+	"mongooseAutoIndex": false,
+	"authentication": true,
+	"mongooseDebug": false,
+	"calendarId": "cantera-tech.com_nftuhotq4sii70du7ngvi8b9fs@group.calendar.google.com",
+	"saveHistoryLog": false,
+	"showRepoLogs": true,
+	"showSyncLogs": true,
+	"processCommands": true,
+	"requiredFields": {
+		"equipment": ["name", "type", "location", "airport"],
+		"equipmentTemplate": ["name", "type"],
+		"maintenancePlan": ["name", "acronym", "description", "periodicity"],
+		"task": ["name", "code", "description", "estimate"],
+		"report": ["name", "description", "type"],
+		"tool": ["name"],
+		"staffPerson": ["acronym"]
+	}
+}

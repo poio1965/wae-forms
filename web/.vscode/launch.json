@@ -1,0 +1,126 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Launch",
+			"type": "node",
+			"request": "launch",
+			"cwd": "${workspaceRoot}",
+			"runtimeExecutable": "nodemon",
+			"runtimeArgs": [
+				"--inspect=5858"
+			],
+			"env": {
+				"NODE_ENV": "dev"
+			},
+			"preLaunchTask": "watcher",
+			"program": "${workspaceRoot}/app.js",
+			"restart": true,
+			"protocol": "inspector",
+			"port": 5858,
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen"
+		},
+		{
+			"name": "OldLaunch",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceRoot}/app.js",
+			"stopOnEntry": false,
+			"args": [],
+			"cwd": "${workspaceRoot}",
+			//"preLaunchTask": "watcher",
+			"runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "development"
+			},
+			"console": "internalConsole",
+			"sourceMaps": false
+		},
+		{
+			"name": "LaunchAEs",
+			"type": "node",
+			"request": "launch",
+			"cwd": "${workspaceRoot}",
+			"runtimeExecutable": "nodemon",
+			"runtimeArgs": [
+				"--debug=5858"
+			],
+			"env": {
+				"NODE_ENV": "dev"
+			},
+			//"preLaunchTask": "watcher",
+			"program": "${workspaceRoot}/app.js",
+			"restart": true,
+			"port": 5858,
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen"
+		},
+		{
+			"name": "Attach",
+			"type": "node",
+			"request": "attach",
+			"port": 5858,
+			"address": "localhost",
+			"restart": false,
+			"sourceMaps": false,
+			"localRoot": "${workspaceRoot}",
+			"remoteRoot": null
+		},
+		{
+			"name": "Attach to Process",
+			"type": "node",
+			"request": "attach",
+			"processId": "${command.PickProcess}",
+			"port": 5858,
+			"sourceMaps": false
+		},
+		{
+			"name": "Launch Chrome against localhost, with sourcemaps",
+			"type": "chrome",
+			"request": "launch",
+			"url": "http://localhost:3000/",
+			"sourceMaps": true,
+			"webRoot": "${workspaceRoot}",
+			"sourceMapPathOverrides": {
+				"webpack:///*": "/*"
+			}
+		},
+		{
+			"name": "Attach to Chrome, with sourcemaps",
+			"type": "chrome",
+			"request": "attach",
+			"port": 9222,
+			"sourceMaps": true,
+			/*"diagnosticLogging": true,*/
+			"webRoot": "${workspaceRoot}",
+			"url": "http://localhost:3000/*",
+			"sourceMapPathOverrides": {
+				"webpack:///*": "/*"
+			}
+		},
+		{
+			"name": "Client",
+			"type": "node",
+			"request": "launch",
+			"cwd": "${workspaceRoot}/client",
+			"runtimeExecutable": "npm.cmd",
+			"runtimeArgs": [
+				"run",
+				"watch"
+			]
+		}
+	],
+	"compounds": [
+		{
+			"name": "Server/Client",
+			"configurations": [
+				"Server",
+				"Client"
+			]
+		}
+	]
+}

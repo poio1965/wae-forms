@@ -1,0 +1,8 @@
+{
+	//"database" : "mongodb://cantera:tapirtech@canteratech.ddns.net:19779/sagePre",
+	"database" : "mongodb://cantera:tapirtech@canteratech.ddns.net:19779/sageTag",
+    "mediaUrl": "/home/celso/media-tag-sage",
+	"processCommands": false,
+	"showRepoLogs": false,
+	"logEntriesToken": "70c224e1-d4a4-498d-ab7e-054bd83c268b"
+}

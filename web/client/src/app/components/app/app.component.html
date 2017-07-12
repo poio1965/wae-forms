@@ -1,0 +1,29 @@
+<header>
+  <nav class="navbar navbar-static-top navbar-inverse">
+    <div class="container">
+      <div class="nav-header">
+       WAE FORMS
+      </div>
+      
+      <div class="navbar-right" >
+      </div>
+    </div>
+
+  </nav>
+</header>
+<div class="container-fluid main">
+	<router-outlet></router-outlet>
+</div>
+<footer>
+	<nav>
+		<div class="container">
+			<div class="btn-group">
+				<button *ngFor="let lang of supportedLanguages"
+						(click)="selectLanguage(lang.value)"
+						class="btn btn-default" [class.btn-primary]="isCurrentLang(lang.value)" type='button'>
+						{{ lang.display }}
+				</button>
+			</div>
+		</div>
+	</nav>
+</footer>

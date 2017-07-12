@@ -1,0 +1,145 @@
+@import '../../../styles/variables.less';
+
+@font_color_user: #fff600;
+@font_color_logout: #ffffff;
+
+h1 {
+	font-size: 3rem;
+	color: #999;
+	margin-bottom: 0;
+}
+
+h2 {
+	font-size: 2rem;
+	margin-top: 0;
+	padding-top: 0;
+}
+
+header {
+	height: 5%;
+	min-height: 4rem;
+}
+
+nav 
+{	
+	font-family: Lato;
+	font-weight: 700;
+	font-size: 1.3rem;
+	background-color: @color_header_background;
+	height: 100%;
+
+	.nav-header {
+		float: left;
+		cursor: pointer;
+		color: white;
+	}
+
+	.navbar-right {
+		float: right;
+	}
+
+	.navbar-right.user-bar {
+		margin-left: 3rem;
+
+		> div {
+			display: inline-block;
+		}
+
+		.user {
+			span {
+			color: @font_color_user;
+			}      
+		}
+
+		.logout {
+			cursor: pointer;
+					
+			span {
+				color: @font_color_logout;
+			}
+
+			div {
+				display: inline-block;
+				margin-left: 0.5rem;
+				vertical-align: middle;
+
+				&.logoutIcon {
+					-webkit-mask: url("../../../assets/images/header_icon_logout.svg") no-repeat;
+					mask: url("../../../assets/images/header_icon_logout.svg") no-repeat;
+					-webkit-mask-size: 2.5rem;
+					mask-size: 2.5rem;
+					height: 2rem;
+					width: 3rem;
+					background-color: @color_icon_primary;
+				}
+			}
+		}
+	}
+
+	a {
+		padding: 0.5rem 1rem;
+		text-decoration: none;
+		display: inline-block;
+
+		&:visited, &:link{
+			color: #607D8B;
+		}
+
+		&:hover{
+			color: #039be5;      
+		}
+
+		&.active{
+			color: #039be5;
+		}
+	}
+
+	.btn-danger {  
+		margin: 1rem;
+	}
+
+	.user {
+		color: #fff;
+	}
+
+	app-issue-notification{
+		position: absolute;
+		right: 0;
+		top: 0px;
+	}
+}
+
+footer {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 20;
+
+	nav {
+		height: 6rem;
+		margin-bottom: 0;
+	}
+
+	.btn-group {
+		float: right;
+	}
+}
+
+.icon {
+	-webkit-mask-size: 3rem;
+	mask-size: 3rem;
+	height: 3rem;
+	width: 3rem;
+	padding: 0;
+
+	&.staff {
+		-webkit-mask: url(../../../assets/images/icon_team1.svg) no-repeat;
+		mask: url(../../../assets/images/icon_team1.svg) no-repeat;
+	}
+}
+
+.container-fluid {
+	padding-bottom: 60px;
+	height: 95%;
+}

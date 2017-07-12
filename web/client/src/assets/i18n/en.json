@@ -1,0 +1,15 @@
+{
+	"FormEditor":{
+        "Name": "Name",
+        "Localizable": "Localizable",
+        "Type": "Type",
+        "Mobile": "Mobile",
+        "FieldName": "Field name",
+        "FieldType": "Field type",
+        "Defaultvalue": "Default value",
+        "Mask": "Mask",
+        "Test": "Test",
+        "Cancel": "Cancel",
+        "Done": "Done"
+    }
+}
