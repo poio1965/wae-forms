@@ -2,7 +2,6 @@
 const config = require('config');
 // app imports
 const utils = require('../utils/utils');
-const hm = require('./history/historyModel');
 
 function genericRepository(mod) {
 
@@ -152,11 +151,6 @@ function genericRepository(mod) {
 					return;
 				}
 
-				// toUpdate.nonce = utils.getNewObjectId();
-				// if (typeof nOnceFound === 'undefined') {
-				// 	nOnceFound = o.nonce;
-				// }
-
 				// copy data
 				utils.extend(o, toUpdate);
 
@@ -173,32 +167,6 @@ function genericRepository(mod) {
 
 					resolve(result.deepPopulate(relations));
 
-					// if (!numberAffected.n && retries < 10) {
-					// 	//we weren't able to update the doc because someone else modified it first, retry
-					// 	//retry with a little delay
-
-					// 	//console.log('Unable to update, retrying ', retries);
-					// 	if (typeof callback !== 'undefined') {
-					// 		setTimeout(function () {
-					// 			callback(retries + 1);
-					// 		}, 200);
-					// 	}
-					// } else if (retries >= 10) {
-					// 	//there is probably something wrong, just return an error
-					// 	reject(new Error('Couldn\'t update document after 10 retries'));
-					// } else {
-						// model.findOne({ _id: id }, model).then(function (result) {
-						// 	if (result) {
-						// 		utils.extend(result, toUpdate);
-						// 		// saveUpdateHistory(result, model.collection.collectionName, 'update');
-						// 		resolve(result.deepPopulate(relations));
-						// 	} else {
-						// 		var message = 'Object ' + model.modelName + ' with id ' + id + ' not found to be updated';
-						// 		console.log(message);
-						// 		reject({ type: 'notFound', message: message });
-						// 	}
-						// });
-					// }
 				});
 			});
 			return;
@@ -287,44 +255,6 @@ function genericRepository(mod) {
 			});
 		});
 	}
-
-	// function saveUpdateHistory(doc, collectionName, action) {
-
-	// 	if (!config.get('saveHistoryLog')) {
-	// 		return;
-	// 	}
-	// 	let historyModel = hm.HistoryModel(hm.historyCollectionName(collectionName));
-
-	// 	historyModel.findOne({ originalId: doc._id }, function (err, o) {
-
-	// 		var d = doc.toObject();
-
-	// 		if (o === null || o == null) {
-	// 			var historyDoc = {};
-	// 			historyDoc.action = 'i';
-	// 			historyDoc.originalId = doc._id;
-	// 			historyDoc.log = [];
-	// 			historyDoc.entryDate = new Date();
-	// 			var historyLogEntry = {};
-	// 			historyLogEntry.action = action;
-	// 			historyLogEntry.value = d;
-	// 			historyLogEntry.entryDate = new Date();
-	// 			historyDoc.log.push(historyLogEntry);
-	// 			historyDoc = historyModel(historyDoc);
-	// 			historyDoc.save();
-	// 		} else {
-	// 			var historyLogEntry2 = {};
-	// 			historyLogEntry2.action = action;
-	// 			historyLogEntry2.value = d;
-	// 			historyLogEntry2.entryDate = new Date();
-	// 			o.log.push(historyLogEntry2);
-	// 			o.save();
-	// 		}
-
-	// 	});
-
-	// 	//history.save();
-	// }
 
 	function removeArrayMember(criteria) {
 		return { $pull: criteria };
