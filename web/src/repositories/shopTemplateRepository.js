@@ -1,4 +1,4 @@
-const model = require('../models/shop-template').model;
+const model = require('../models/shopTemplate').model;
 const genericRepository = require('../repositories/genericRepository');
 
 var shopTemplateRepository = function() {

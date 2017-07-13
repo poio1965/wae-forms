@@ -5,7 +5,11 @@ const Schema = mongoose.Schema;
 // Own collection
 var props = {
     _id: {type: String, required: false},
-	name: { type: String },
+    name: { type: String },
+    tags: [{type: String}],
+    lat: {type: Number},
+    lng: {type: Number},
+    address: {type: String},
     media: [{ type: String, ref: 'media' }]
 }
 

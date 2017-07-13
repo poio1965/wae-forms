@@ -17,6 +17,15 @@ import { AgmCoreModule } from '@agm/core';
 import { AppRoutingModule } from './app.routing.module';
 
 import { AppComponent } from './components/app/app.component';
+import { InputDropZoneListComponent } from './components/input-drop-zone-list/input-drop-zone-list.component';
+import { MediaThumbnailCarouselComponent } from './components/media-thumbnail-carousel/media-thumbnail-carousel.component';
+import { InputTagsComponent } from './components/input-tags/input-tags.component';
+import { RestaurantTemplateComponent } from './components/restaurant-template/restaurant-template.component';
+
+import { Utils } from './helpers/utils';
+
+import { RestaurantTemplateService } from './services/restaurant-template.service';
+import { MediaService } from './services/media.service';
 
 
 export function createTranslateLoader(http: Http) {
@@ -32,7 +41,11 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
 @NgModule({
 	declarations: [
-		AppComponent
+		AppComponent,
+		InputDropZoneListComponent,
+		InputTagsComponent,
+		MediaThumbnailCarouselComponent,
+		RestaurantTemplateComponent
 	],
 	imports: [
 		BrowserModule,
@@ -53,7 +66,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 				deps: [Http]
 		}),
 		AgmCoreModule.forRoot({
-			apiKey: 'AIzaSyBgQSsE7yDoV4sD6GPlANFQiAVzPDVacOo'
+			apiKey: 'AIzaSyBgQSsE7yDoV4sD6GPlANFQiAVzPDVacOo',
+			libraries: ["places"]
 		}),
 		TreeModule
 	],
@@ -62,7 +76,10 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 			provide: AuthHttp,
 			useFactory: authHttpServiceFactory,
 			deps: [Http, RequestOptions ]
-		}
+		},
+		MediaService,
+		RestaurantTemplateService,
+		Utils
 	],
 	entryComponents: [],
 	bootstrap: [AppComponent]

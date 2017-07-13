@@ -7,6 +7,8 @@ const museumTemplateService = require('./services/museumTemplateService');
 const restaurantTemplateService = require('./services/restaurantTemplateService');
 const shopTemplateService = require('./services/shopTemplateService');
 const touristGuideService = require('./services/touristGuideService');
+const mediaService = require('./services/mediaService');
+const fileService = require('./services/external/fileService');
 
 const requestInterceptor = require('./utils/requestInterceptor');
 
@@ -44,5 +46,15 @@ router.post('/tourist-guide-template', touristGuideService.create);
 router.get('/tourist-guide-template/:id', touristGuideService.find);
 router.delete('/tourist-guide-template/:id', touristGuideService.remove);
 router.put('/tourist-guide-template/:id', touristGuideService.update);
+
+router.get('/media/:id/download', mediaService.streamMediaFile);
+router.get('/media/:id', mediaService.find);
+router.get('/media', mediaService.getAll);
+router.post('/upload', fileService.upload.single('file'), mediaService.createMediaFile);
+router.post('/upload-resource', fileService.upload.single('file'), mediaService.createUnattachedMediaFile);
+router.delete('/media/:id', mediaService.remove);
+router.post('/upload/:id', fileService.upload.single('file'), mediaService.saveFile);
+
+
 
 module.exports = router;

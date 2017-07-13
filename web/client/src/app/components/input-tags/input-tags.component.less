@@ -1,0 +1,49 @@
+@import '../../../styles/variables.less';
+
+@font_color_delete: #000;
+
+div {
+	input, button{
+		display: inline-block;
+	}
+
+	input {
+		font-size: @input_font_size;
+	}
+
+	label {
+		font-size: @label_font_size;
+		font-weight: bold;		
+	}
+
+	button {
+		margin-top: 0rem;
+	}
+
+	.tags {
+		margin-top: 1rem;
+
+		.tag {
+			display: inline-block;
+			background-color: @color_input_background;
+			margin-bottom: 0.5rem;
+			margin-right: 0.5rem;
+			padding: 0.5rem;
+
+			.delete {
+				color: @font_color_delete;
+				padding-left: 1rem;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.help {
+		display: inline-block;
+		margin-left: 1rem;
+		background-color: @color_input_background;
+		color: #fff;
+		padding: 0 0.6rem;
+		font-size: 1.2rem;
+	}
+}

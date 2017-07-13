@@ -1,0 +1,80 @@
+<h3 translate>RestaurantTemplate.Title</h3>
+<div class="row">
+	<div class="col-3">
+		<div (click)="newRestaurant()">New</div>
+		<div *ngFor="let r of restaurants" (click)="select(r)">
+			<span>{{r.name}}</span>
+		</div>
+	</div>
+	<div class="col-9">
+		<div class="container">
+			<form [formGroup]="restaurantForm" >
+				<div class="row">
+					<div class="col-12">
+						<div class="row">
+							<div class="col-6">
+								<agm-map [latitude]="restaurant.lat" [longitude]="restaurant.lng" [zoom]="zoom" [streetViewControl]="false" 
+									(mapClick)="setPosition($event)" (zoomChange)="zoomChange($event)">
+									<agm-marker [visible]="showMarker" [latitude]="restaurant.lat" [longitude]="restaurant.lng"></agm-marker>
+								</agm-map>
+							</div>
+							<div class="col-6">
+								<label>search</label>
+								<input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" 
+									type="text" class="form-control" #search [formControl]="searchControl">
+						
+								<label>Lat:</label><input type="text" class="form-control" formControlName="lat" id="lat" name="lat">
+								<label>Lng:</label><input type="text" class="form-control" formControlName="lng" id="lng" name="lng">
+								<button (click)="locate()">locate</button>
+							</div>						
+						</div>
+					</div>
+					<div class="col-12">
+						<label translate for="name">RestaurantTemplate.Name</label>
+						<div class="input-group">                  
+							<input type="text" class="form-control" formControlName="name" id="name" name="name">
+						</div>
+					</div>
+					<div class="col-12">
+						<label translate for="field1">RestaurantTemplate.Address</label>
+						<div class="input-group">                  
+							<input type="text" class="form-control" formControlName="address" id="address" name="address">
+						</div>
+					</div>
+					<div class="col-12">
+						<label translate for="field1">RestaurantTemplate.field1</label>
+						<div class="input-group">                  
+							<input type="text" class="form-control" formControlName="field1" id="field1" name="field1">
+						</div>
+					</div>
+					<div class="col-12">
+						<label translate for="field2">RestaurantTemplate.field2</label>
+						<div class="input-group">                  
+							<input type="text" class="form-control" formControlName="field2" id="field2" name="field2">
+						</div>
+					</div>
+					<div class="col-12">
+						<label translate for="field3">RestaurantTemplate.field3</label>
+						<div class="input-group">                  
+							<input type="text" class="form-control" formControlName="field3" id="field3" name="field3">
+						</div>
+					</div>
+					<div class="col-12">
+						<app-input-tags class="form-group" [(tags)]='restaurant.tags' [name]="'tags'" [id]="'tags'" [label]="'RestaurantTemplate.Tags'"
+							(tagsChanged)="save()"></app-input-tags>
+					</div>
+					<div class="col-12">
+						<app-input-drop-zone-list [nameMaxLength]="180" [(mediaList)]="restaurant.media" 
+							[label]="'RestaurantTemplate.MediaSupport'" #dropZone
+							[updateFunction]="updateFunction" (mediaListOrderChanged)="save()"></app-input-drop-zone-list>
+					</div>			
+					
+					<div class="col-12">
+						<button translate>RestaurantTemplate.Cancel</button>
+						<button (click)="save()" translate>RestaurantTemplate.Done</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

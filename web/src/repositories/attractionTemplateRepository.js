@@ -1,4 +1,4 @@
-const model = require('../models/attraction-template').model;
+const model = require('../models/attractionTemplate').model;
 const genericRepository = require('../repositories/genericRepository');
 
 var attractionTemplateRepository = function() {

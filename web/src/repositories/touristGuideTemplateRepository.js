@@ -1,4 +1,4 @@
-const model = require('../models/tourist-guide-template').model;
+const model = require('../models/touristGuideTemplate').model;
 const genericRepository = require('../repositories/genericRepository');
 
 var touristGuideTemplateRepository = function() {

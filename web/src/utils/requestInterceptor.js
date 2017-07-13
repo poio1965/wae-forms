@@ -35,7 +35,7 @@ var setRequestInfo = (req) => {
 	setStatusParam(requestData);
 	setBetween(requestData);
 	setOrderBy(requestData);
-	setAuth(requestData, req);
+	//setAuth(requestData, req);
 
 	if (req.method === 'PUT') {
 		var data = req.body;

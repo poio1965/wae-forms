@@ -1,0 +1,68 @@
+<div id='carousel-custom' class='carousel slide'>
+
+	<!-- Indicators -->
+	<ol class='carousel-thumbnails' *ngIf="mediaDataList && mediaDataList.length > 0" [dragula]='"media"' [dragulaModel]='mediaDataList'>
+		<li *ngFor="let mediaElem of mediaDataList; let im = index"  [ngClass]="{'active': im === selectedMedia}">
+			<div *ngIf="mediaElem.type === 'image'">
+				<img src="{{mediaElem.url}}" (click)="selectMedia(mediaElem,im)"/>
+				<span *ngIf="showDelete" class="ui-icon ui-icon-close" (click)="deleteMedia(mediaElem)"></span>
+			</div>
+			<div *ngIf="mediaElem.type === 'video'" >
+				<div class="video media-icon" (click)="selectMedia(mediaElem,im)"></div>
+				<span *ngIf="showDelete" class="ui-icon ui-icon-close" (click)="deleteMedia(mediaElem)"></span>
+			</div>
+			<div *ngIf="mediaElem.type === 'audio'" >
+				<div class="audio media-icon" (click)="selectMedia(mediaElem,im)"></div>
+				<span *ngIf="showDelete" class="ui-icon ui-icon-close" (click)="deleteMedia(mediaElem)"></span>
+			</div>
+			<div *ngIf="mediaElem.type === 'text'" >
+				<div class="text media-icon" (click)="selectMedia(mediaElem,im)"></div>
+				<span *ngIf="showDelete" class="ui-icon ui-icon-close" (click)="deleteMedia(mediaElem)"></span>
+			</div>
+			<div *ngIf="mediaElem.type === 'document'" >
+				<div class="document media-icon" (click)="selectMedia(mediaElem,im)"></div>
+				<span *ngIf="showDelete" class="ui-icon ui-icon-close" (click)="deleteMedia(mediaElem)"></span>
+			</div>
+		</li>
+	</ol>
+
+    <div class='carousel-outer' *ngIf="extendMediaSection && showMedia">
+        <!-- Wrapper for slides -->
+        <div class='carousel-inner'>
+           <div class="carousel-item-media" *ngFor="let mediaElem of mediaDataList; let im = index" [ngClass]="{'active': im === selectedMedia}">			
+				
+				<div class="image-container" *ngIf="mediaElem.type === 'image'">
+					<img src="{{mediaElem.url}}" [ngStyle]="mediaElem.style" >
+				</div>
+				<div class="video-container" *ngIf="mediaElem.type === 'video'" >
+					<video controls [ngStyle]="mediaElem.style" width="100%">
+						<source src="{{mediaElem.url}}" type="{{mediaElem.media.type}}" >
+					</video>
+				</div>
+				<div class="audio-container" *ngIf="mediaElem.type === 'audio'">
+					<audio controls >
+						<source src="{{mediaElem.url}}" type="{{mediaElem.media.type}}">
+					</audio>
+				</div>
+				<div class="text-container" *ngIf="mediaElem.type === 'text'">
+					<span>{{ mediaElem.text }}</span>
+				</div>
+				<div class="document-container" *ngIf="mediaElem.type === 'document'">
+					<span>File not supported:</span>
+					<span>{{ mediaElem.text }}</span><br>
+					<span>Download it</span>&nbsp;<span><a href="{{ mediaElem.url }}">here</a></span>
+				</div>
+			</div>
+        </div>
+            
+        <!-- Controls -->
+        <a *ngIf="selectedMedia > 0" class='carousel-control-prev' (click)="previous()">
+            &lt;
+        </a>
+        <a *ngIf="selectedMedia < mediaDataList.length - 1" class='carousel-control-next' (click)="next()">
+            &gt;
+        </a>
+    </div>
+    
+
+</div>
