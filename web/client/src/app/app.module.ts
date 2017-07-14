@@ -21,11 +21,13 @@ import { InputDropZoneListComponent } from './components/input-drop-zone-list/in
 import { MediaThumbnailCarouselComponent } from './components/media-thumbnail-carousel/media-thumbnail-carousel.component';
 import { InputTagsComponent } from './components/input-tags/input-tags.component';
 import { MapSearchComponent } from './components/map-search/map-search.component';
+import { AttractionTemplateComponent } from './components/attraction-template/attraction-template.component';
 import { RestaurantTemplateComponent } from './components/restaurant-template/restaurant-template.component';
 
 
 import { Utils } from './helpers/utils';
 
+import { AttractionTemplateService } from './services/attraction-template.service';
 import { RestaurantTemplateService } from './services/restaurant-template.service';
 import { MediaService } from './services/media.service';
 
@@ -48,6 +50,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 		InputTagsComponent,
 		MediaThumbnailCarouselComponent,
 		MapSearchComponent,
+		AttractionTemplateComponent,
 		RestaurantTemplateComponent
 	],
 	imports: [
@@ -81,6 +84,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 			deps: [Http, RequestOptions ]
 		},
 		MediaService,
+		AttractionTemplateService,
 		RestaurantTemplateService,
 		Utils
 	],

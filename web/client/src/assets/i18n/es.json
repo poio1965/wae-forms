@@ -1,6 +1,7 @@
 {
      "HOME":{
-        "RestaurantTemplates":"Plantillas de restaurante"
+        "RestaurantTemplates":"Plantillas de restaurante",
+        "AttractionTemplates": "Plantillas de atracciones"
     },
 
     "Map":{
@@ -13,6 +14,21 @@
 
 	"RestaurantTemplate":{
         "Title":"Plantilla de restaurante",
+        "Name": "Nombre",
+        "Address": "Dirección",
+        "field1": "campo 1",
+        "field2": "campo 2",
+        "field3": "campo 3",
+        "Tags": "Etiquetas",
+        "MediaSupport": "Media",
+        "AddNew": "Añadir nuevo",
+        "Filter": "Filtrar",
+        "Cancel": "Cancelar",
+        "Done": "Hecho"
+    },
+    
+    "AttractionTemplate":{
+        "Title":"Plantilla de atracciones",
         "Name": "Nombre",
         "Address": "Dirección",
         "field1": "campo 1",
