@@ -1,11 +1,5 @@
 <h3 translate>RestaurantTemplate.Title</h3>
 <div class="row">
-	<div class="col-3">
-		<div (click)="newRestaurant()">New</div>
-		<div *ngFor="let r of restaurants" (click)="select(r)">
-			<span>{{r.name}}</span>
-		</div>
-	</div>
 	<div class="col-9">
 		<div class="container">
 			<form [formGroup]="restaurantForm" >
@@ -75,6 +69,23 @@
 					</div>
 				</div>
 			</form>
+		</div>
+		
+	</div>
+	<div class="col-3 list">
+		<div (click)="newRestaurant()" class="add-new">Add new</div>
+		<div class="row search">
+			<div class="col-12">
+				<input type="text" [(ngModel)]="filterText" (keyup)="filter()" placeholder="filter"/>
+			</div>			
+		</div>
+		<div *ngFor="let r of restaurantsToShow" (click)="select(r)" [ngClass]="{'selected': r._id === restaurant._id}">
+			<span>{{r.name}}</span>
+			<div *ngIf="r.media && r.media.length > 0" class="media-counter">
+				<div class="media-icon"></div>
+				<span class="media-length">{{ r.media.length }}</span>	
+			</div>
+			<span class="delete" (click)="remove(r); $event.stopPropagation()">X</span>
 		</div>
 	</div>
 </div>

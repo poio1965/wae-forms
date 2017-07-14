@@ -20,6 +20,7 @@ declare var google: any;
 export class RestaurantTemplateComponent implements OnInit {
 
 	restaurants: RestaurantTemplate[];
+	restaurantsToShow: RestaurantTemplate[];
 	restaurantForm: FormGroup;
 	restaurant: RestaurantTemplate;
 	searchControl: FormControl;
@@ -27,6 +28,7 @@ export class RestaurantTemplateComponent implements OnInit {
 	showMarker: boolean;
 
 	updateFunction: Function;
+	filterText: string;
 
 	@ViewChild("search")
 	public searchElementRef: ElementRef;
@@ -50,7 +52,6 @@ export class RestaurantTemplateComponent implements OnInit {
 			this.restaurant.lng = place.geometry.location.lng();
 			this.zoom = 12;
 			
-			console.log(place);
 			if(place.name){
 				this.restaurant.name = place.name;
 			}
@@ -89,8 +90,10 @@ export class RestaurantTemplateComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		this.filterText = "";
 		this.service.getAll().subscribe(list => {
 			this.restaurants = list;
+			this.filter();
 		});
 		this.restaurant = new RestaurantTemplate;
 
@@ -131,7 +134,6 @@ export class RestaurantTemplateComponent implements OnInit {
 	}
 
 	setPosition(event){
-		console.log(event);
 		this.restaurant.lat = event.coords.lat;
 		this.restaurant.lng = event.coords.lng;
 		this.searchControl.reset();
@@ -144,7 +146,6 @@ export class RestaurantTemplateComponent implements OnInit {
 		this.restaurant.lng = formModel.lng as number;
 		this.zoom = 12;
 		this.resetForm();
-		console.log(this.restaurant);
 	}
 
 
@@ -159,14 +160,13 @@ export class RestaurantTemplateComponent implements OnInit {
 	}
 
 	save(){
-		console.log("save");
 		this.prepareToSave();
-		console.log(this.restaurant);
 		if(this.restaurant._id){
 			this.service.update(this.restaurant).subscribe();
 		}else{
 			this.service.create(this.restaurant).subscribe(r => {
 				this.restaurants.push(r);
+				this.filter();
 				this.restaurant = r;
 				this.resetForm();
 			});
@@ -194,6 +194,31 @@ export class RestaurantTemplateComponent implements OnInit {
 
 	zoomChange(event){
 		this.zoom = event;
+	}
+
+	remove(restaurant: RestaurantTemplate){
+		let index = this.restaurants.findIndex(r => r._id === restaurant._id);
+		this.service.delete(restaurant._id).subscribe(()=>{
+			this.restaurants.splice(index, 1);
+			if(this.restaurant._id === restaurant._id){
+				this.restaurant = new RestaurantTemplate;
+				this.resetForm();
+				this.filter();
+			}
+		});
+	}
+
+	filter(){
+		if(this.filterText){
+			this.restaurantsToShow = this.restaurants.filter(r => {
+				if(r.name){
+					return r.name.toLowerCase().indexOf(this.filterText.toLowerCase()) > -1;
+				}
+				return false;
+			});
+		}else{
+			this.restaurantsToShow = this.restaurants;
+		}
 	}
 
 }

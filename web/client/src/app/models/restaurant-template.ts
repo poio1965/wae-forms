@@ -1,6 +1,7 @@
 import { Media } from './media';
 
 export class RestaurantTemplate {
+    _v: number;
     _id: string;
     name: string;
     address: string;
@@ -12,6 +13,7 @@ export class RestaurantTemplate {
 
 
     constructor(){
+        this._v = 0;
         this._id = undefined;
         this.name = '';
         this.address = '';
