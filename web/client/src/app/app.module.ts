@@ -22,12 +22,14 @@ import { MediaThumbnailCarouselComponent } from './components/media-thumbnail-ca
 import { InputTagsComponent } from './components/input-tags/input-tags.component';
 import { MapSearchComponent } from './components/map-search/map-search.component';
 import { AttractionTemplateComponent } from './components/attraction-template/attraction-template.component';
+import { MuseumTemplateComponent } from './components/museum-template/museum-template.component';
 import { RestaurantTemplateComponent } from './components/restaurant-template/restaurant-template.component';
 
 
 import { Utils } from './helpers/utils';
 
 import { AttractionTemplateService } from './services/attraction-template.service';
+import { MuseumTemplateService } from './services/museum-template.service';
 import { RestaurantTemplateService } from './services/restaurant-template.service';
 import { MediaService } from './services/media.service';
 
@@ -51,6 +53,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 		MediaThumbnailCarouselComponent,
 		MapSearchComponent,
 		AttractionTemplateComponent,
+		MuseumTemplateComponent,
 		RestaurantTemplateComponent
 	],
 	imports: [
@@ -85,6 +88,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 		},
 		MediaService,
 		AttractionTemplateService,
+		MuseumTemplateService,
 		RestaurantTemplateService,
 		Utils
 	],
