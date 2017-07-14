@@ -2,7 +2,8 @@
     "HOME":{
         "RestaurantTemplates": "Restaurant templates",
         "AttractionTemplates": "Attraction templates",
-        "MuseumTemplates": "Museum templates"
+        "MuseumTemplates": "Museum templates",
+        "ShopTemplates": "Shop template"
     },
 
     "Map":{
@@ -45,6 +46,21 @@
 
 	"MuseumTemplate":{
         "Title":"Museum template",
+        "Name": "Name",
+        "Address": "Address",
+        "field1": "field1",
+        "field2": "field2",
+        "field3": "field3",
+        "Tags": "Tags",
+        "MediaSupport": "Media",
+        "AddNew": "Add new",
+        "Filter": "Filter",
+        "Cancel": "Cancel",
+        "Done": "Done"
+    },
+
+	"ShopTemplate":{
+        "Title":"Shop template",
         "Name": "Name",
         "Address": "Address",
         "field1": "field1",

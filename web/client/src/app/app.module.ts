@@ -24,6 +24,7 @@ import { MapSearchComponent } from './components/map-search/map-search.component
 import { AttractionTemplateComponent } from './components/attraction-template/attraction-template.component';
 import { MuseumTemplateComponent } from './components/museum-template/museum-template.component';
 import { RestaurantTemplateComponent } from './components/restaurant-template/restaurant-template.component';
+import { ShopTemplateComponent } from './components/shop-template/shop-template.component';
 
 
 import { Utils } from './helpers/utils';
@@ -31,6 +32,7 @@ import { Utils } from './helpers/utils';
 import { AttractionTemplateService } from './services/attraction-template.service';
 import { MuseumTemplateService } from './services/museum-template.service';
 import { RestaurantTemplateService } from './services/restaurant-template.service';
+import { ShopTemplateService } from './services/shop-template.service';
 import { MediaService } from './services/media.service';
 
 
@@ -54,7 +56,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 		MapSearchComponent,
 		AttractionTemplateComponent,
 		MuseumTemplateComponent,
-		RestaurantTemplateComponent
+		RestaurantTemplateComponent,
+		ShopTemplateComponent
 	],
 	imports: [
 		BrowserModule,
@@ -90,6 +93,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 		AttractionTemplateService,
 		MuseumTemplateService,
 		RestaurantTemplateService,
+		ShopTemplateService,
 		Utils
 	],
 	entryComponents: [],

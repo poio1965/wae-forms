@@ -1,0 +1,76 @@
+<h3 translate>ShopTemplate.Title</h3>
+<div class="row">
+	<div class="col-9">
+		<div class="container">
+			<form [formGroup]="shopForm" >
+				<div class="row">
+					<div class="col-12">
+						<app-map-search [lat]="shop.lat" [lng]="shop.lng" (placeEmitter)="placeSet($event)" (locationChange)="locationChange($event)">
+						</app-map-search>
+					</div>
+					<div class="col-12">
+						<label translate for="name">ShopTemplate.Name</label>
+						<div class="input-group">                  
+							<input type="text" class="form-control" formControlName="name" id="name" name="name">
+						</div>
+					</div>
+					<div class="col-12">
+						<label translate for="field1">ShopTemplate.Address</label>
+						<div class="input-group">                  
+							<input type="text" class="form-control" formControlName="address" id="address" name="address">
+						</div>
+					</div>
+					<div class="col-12">
+						<label translate for="field1">ShopTemplate.field1</label>
+						<div class="input-group">                  
+							<input type="text" class="form-control" formControlName="field1" id="field1" name="field1">
+						</div>
+					</div>
+					<div class="col-12">
+						<label translate for="field2">ShopTemplate.field2</label>
+						<div class="input-group">                  
+							<input type="text" class="form-control" formControlName="field2" id="field2" name="field2">
+						</div>
+					</div>
+					<div class="col-12">
+						<label translate for="field3">ShopTemplate.field3</label>
+						<div class="input-group">                  
+							<input type="text" class="form-control" formControlName="field3" id="field3" name="field3">
+						</div>
+					</div>
+					<div class="col-12">
+						<app-input-tags class="form-group" [(tags)]='shop.tags' [name]="'tags'" [id]="'tags'" [label]="'ShopTemplate.Tags'"
+							></app-input-tags>
+					</div>
+					<div class="col-12">
+						<app-input-drop-zone-list [nameMaxLength]="180" [(mediaList)]="shop.media" 
+							[label]="'ShopTemplate.MediaSupport'" #dropZone
+							[updateFunction]="updateFunction" (mediaListOrderChanged)="save()"></app-input-drop-zone-list>
+					</div>			
+					
+					<div class="col-12">
+						<button translate (click)="newShop()">ShopTemplate.Cancel</button>
+						<button (click)="save()" translate>ShopTemplate.Done</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		
+	</div>
+	<div class="col-3 list">
+		<div translate (click)="newShop()" class="add-new">ShopTemplate.AddNew</div>
+		<div class="row search">
+			<div class="col-12">
+				<input type="text" [(ngModel)]="filterText" (keyup)="filter()" [placeholder]="'ShopTemplate.Filter' | translate"/>
+			</div>			
+		</div>
+		<div *ngFor="let r of shopsToShow" (click)="select(r)" [ngClass]="{'selected': r._id === shop._id}">
+			<span>{{r.name}}</span>
+			<div *ngIf="r.media && r.media.length > 0" class="media-counter">
+				<div class="media-icon"></div>
+				<span class="media-length">{{ r.media.length }}</span>	
+			</div>
+			<span class="delete" (click)="remove(r); $event.stopPropagation()">X</span>
+		</div>
+	</div>
+</div>
