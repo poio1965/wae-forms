@@ -5,23 +5,8 @@
 			<form [formGroup]="restaurantForm" >
 				<div class="row">
 					<div class="col-12">
-						<div class="row">
-							<div class="col-6">
-								<agm-map [latitude]="restaurant.lat" [longitude]="restaurant.lng" [zoom]="zoom" [streetViewControl]="false" 
-									(mapClick)="setPosition($event)" (zoomChange)="zoomChange($event)">
-									<agm-marker [visible]="showMarker" [latitude]="restaurant.lat" [longitude]="restaurant.lng"></agm-marker>
-								</agm-map>
-							</div>
-							<div class="col-6">
-								<label>search</label>
-								<input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" 
-									type="text" class="form-control" #search [formControl]="searchControl">
-						
-								<label>Lat:</label><input type="text" class="form-control" formControlName="lat" id="lat" name="lat">
-								<label>Lng:</label><input type="text" class="form-control" formControlName="lng" id="lng" name="lng">
-								<button (click)="locate()">locate</button>
-							</div>						
-						</div>
+						<app-map-search [lat]="restaurant.lat" [lng]="restaurant.lng" (placeEmitter)="placeSet($event)" (locationChange)="locationChange($event)">
+						</app-map-search>
 					</div>
 					<div class="col-12">
 						<label translate for="name">RestaurantTemplate.Name</label>

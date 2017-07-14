@@ -3,6 +3,14 @@
         "RestaurantTemplates":"Restaurant templates"
     },
 
+    "Map":{
+        "Search": "Search",
+        "SearchLocation": "Search for location",
+        "Latitude": "Latitude",
+        "Longitude": "Longitude",
+        "Locate": "Locate"
+    },
+
 	"RestaurantTemplate":{
         "Title":"Restaurant template",
         "Name": "Name",

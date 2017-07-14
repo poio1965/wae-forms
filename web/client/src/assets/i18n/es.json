@@ -3,6 +3,14 @@
         "RestaurantTemplates":"Plantillas de restaurante"
     },
 
+    "Map":{
+        "Search": "Busqueda",
+        "SearchLocation": "Buscar un lugar",
+        "Latitude": "Latitud",
+        "Longitude": "Longitud",
+        "Locate": "Localiza"
+    },
+
 	"RestaurantTemplate":{
         "Title":"Plantilla de restaurante",
         "Name": "Nombre",

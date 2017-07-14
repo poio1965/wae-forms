@@ -1,0 +1,18 @@
+
+<div class="row">
+	<div class="col-6">
+		<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [streetViewControl]="false" 
+			(mapClick)="setPosition($event)" (zoomChange)="zoomChange($event)">
+			<agm-marker [visible]="showMarker" [latitude]="lat" [longitude]="lng"></agm-marker>
+		</agm-map>
+	</div>
+	<div class="col-6">
+		<label translate>Map.Search</label>
+		<input [placeholder]="'Map.SearchLocation' | translate" autocorrect="off" autocapitalize="off" spellcheck="off" 
+			type="text" class="form-control" #search [formControl]="searchControl">
+
+		<label translate>Map.Latitude</label><input type="text" class="form-control" [(ngModel)]="lat" id="lat" name="lat">
+		<label translate>Map.Longitude</label><input type="text" class="form-control" [(ngModel)]="lng" id="lng" name="lng">
+		<button (click)="locate()" translate>Map.Locate</button>
+	</div>						
+</div>
