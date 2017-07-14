@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import { TestBed, async } from '@angular/core/testing';
-import { RestaurantTemplateComponent } from './restaurant-template.component
+import { RestaurantTemplateComponent } from './restaurant-template.component';
 describe('AppComponent', () => {
 	beforeEach(() => {
 		TestBed.configureTestingModule({
