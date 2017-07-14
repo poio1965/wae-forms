@@ -3,7 +3,8 @@
         "RestaurantTemplates":"Plantillas de restaurante",
         "AttractionTemplates": "Plantillas de atracciones",
         "MuseumTemplates": "Plantillas de museo",
-        "ShopTemplates": "Plantillas de tienda"
+        "ShopTemplates": "Plantillas de tienda",
+        "TouristGuideTemplates": "Plantillas de guía turístico"
     },
 
     "Map":{
@@ -61,6 +62,21 @@
 
     "ShopTemplate":{
         "Title":"Plantilla de tienda",
+        "Name": "Nombre",
+        "Address": "Dirección",
+        "field1": "campo 1",
+        "field2": "campo 2",
+        "field3": "campo 3",
+        "Tags": "Etiquetas",
+        "MediaSupport": "Media",
+        "AddNew": "Añadir nuevo",
+        "Filter": "Filtrar",
+        "Cancel": "Cancelar",
+        "Done": "Hecho"
+    },
+
+    "TouristGuideTemplate":{
+        "Title":"Plantilla de guía turístico",
         "Name": "Nombre",
         "Address": "Dirección",
         "field1": "campo 1",
