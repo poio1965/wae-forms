@@ -106,7 +106,9 @@ export class RestaurantTemplateComponent implements OnInit {
 	save(){
 		this.prepareToSave();
 		if(this.restaurant._id){
-			this.service.update(this.restaurant).subscribe();
+			this.service.update(this.restaurant).subscribe(r => {
+				this.restaurant = r;
+			});
 		}else{
 			this.service.create(this.restaurant).subscribe(r => {
 				this.restaurants.push(r);
