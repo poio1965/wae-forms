@@ -10,7 +10,10 @@ var props = {
     lat: {type: Number},
     lng: {type: Number},
     address: {type: String},
-    media: [{ type: String, ref: 'media' }]
+    media: [{ type: String, ref: 'media' }],
+    field1: {type: String},
+    field2: {type: String},
+    field3: {type: String}
 }
 
 var schema = new Schema(props, { timestamps: true });

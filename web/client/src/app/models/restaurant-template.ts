@@ -10,6 +10,9 @@ export class RestaurantTemplate {
     lng: number;
     tags: string[];
     media: Media[];
+    field1: string;
+    field2: string;
+    field3: string;
 
 
     constructor(){
@@ -22,5 +25,8 @@ export class RestaurantTemplate {
         this.lng = 0;
         this.tags = [];
         this.media = [];
+        this.field1 = '';
+        this.field2 = '';
+        this.field3 = '';
     }
 }

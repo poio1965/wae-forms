@@ -46,8 +46,9 @@ export class RestaurantTemplateComponent implements OnInit {
 
 		this.updateFunction = this.save.bind(this);
 
-		this.mediaService.allItemsCompleted.subscribe(() => this.save());
-		this.mediaService.itemRemoved.subscribe(() => this.save());
+		//uncomment if autosave
+		//this.mediaService.allItemsCompleted.subscribe(() => this.save());
+		//this.mediaService.itemRemoved.subscribe(() => this.save());
 	}	
 
 	createForm(){
@@ -66,9 +67,9 @@ export class RestaurantTemplateComponent implements OnInit {
 		this.restaurantForm.reset({
 			'name': this.restaurant.name ? this.restaurant.name : '',
 			'address': this.restaurant.address ? this.restaurant.address : '',
-			'field1': '',
-			'field2': '',
-			'field3': '',
+			'field1': this.restaurant.field1 ? this.restaurant.field1 :'',
+			'field2': this.restaurant.field2 ? this.restaurant.field2 :'',
+			'field3': this.restaurant.field3 ? this.restaurant.field3 :'',
 			'lat':this.restaurant.lat ? this.restaurant.lat : 0,
 			'lng': this.restaurant.lng ? this.restaurant.lng : 0
 		});
