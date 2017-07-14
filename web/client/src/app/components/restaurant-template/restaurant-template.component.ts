@@ -43,6 +43,10 @@ export class RestaurantTemplateComponent implements OnInit {
 			this.filter();
 		});
 		this.restaurant = new RestaurantTemplate;
+		this.restaurantForm.valueChanges.subscribe(() =>{
+			//for autosave add .debounceTime(1000) before subscribe
+			this.prepareToSave();
+		});
 
 		this.updateFunction = this.save.bind(this);
 
