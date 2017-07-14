@@ -1,14 +1,19 @@
 {
-	"FormEditor":{
+    "HOME":{
+        "RestaurantTemplates":"Restaurant templates"
+    },
+
+	"RestaurantTemplate":{
+        "Title":"Restaurant template",
         "Name": "Name",
-        "Localizable": "Localizable",
-        "Type": "Type",
-        "Mobile": "Mobile",
-        "FieldName": "Field name",
-        "FieldType": "Field type",
-        "Defaultvalue": "Default value",
-        "Mask": "Mask",
-        "Test": "Test",
+        "Address": "Address",
+        "field1": "field1",
+        "field2": "field2",
+        "field3": "field3",
+        "Tags": "Tags",
+        "MediaSupport": "Media",
+        "AddNew": "Add new",
+        "Filter": "Filter",
         "Cancel": "Cancel",
         "Done": "Done"
     }

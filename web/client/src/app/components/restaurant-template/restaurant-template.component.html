@@ -64,7 +64,7 @@
 					</div>			
 					
 					<div class="col-12">
-						<button translate>RestaurantTemplate.Cancel</button>
+						<button translate (click)="newRestaurant()">RestaurantTemplate.Cancel</button>
 						<button (click)="save()" translate>RestaurantTemplate.Done</button>
 					</div>
 				</div>
@@ -73,10 +73,10 @@
 		
 	</div>
 	<div class="col-3 list">
-		<div (click)="newRestaurant()" class="add-new">Add new</div>
+		<div translate (click)="newRestaurant()" class="add-new">RestaurantTemplate.AddNew</div>
 		<div class="row search">
 			<div class="col-12">
-				<input type="text" [(ngModel)]="filterText" (keyup)="filter()" placeholder="filter"/>
+				<input type="text" [(ngModel)]="filterText" (keyup)="filter()" [placeholder]="'RestaurantTemplate.Filter' | translate"/>
 			</div>			
 		</div>
 		<div *ngFor="let r of restaurantsToShow" (click)="select(r)" [ngClass]="{'selected': r._id === restaurant._id}">

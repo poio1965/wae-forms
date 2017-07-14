@@ -1,2 +1,20 @@
-{    
+{
+     "HOME":{
+        "RestaurantTemplates":"Plantillas de restaurante"
+    },
+
+	"RestaurantTemplate":{
+        "Title":"Plantilla de restaurante",
+        "Name": "Nombre",
+        "Address": "Dirección",
+        "field1": "campo 1",
+        "field2": "campo 2",
+        "field3": "campo 3",
+        "Tags": "Etiquetas",
+        "MediaSupport": "Media",
+        "AddNew": "Añadir nuevo",
+        "Filter": "Filtrar",
+        "Cancel": "Cancelar",
+        "Done": "Hecho"
+    }
 }
