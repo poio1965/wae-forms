@@ -1,7 +1,7 @@
 {
 	//TODO define
-	"database" : "mongodb://cantera:tapirtech@canteratech.ddns.net:19779/waeFormsPre", 
-	"mediaUrl": "/home/celso/mediaWaeForms",
+	//"database" : "mongodb://cantera:tapirtech@canteratech.ddns.net:19779/waeFormsPre", 
+	"mediaUrl": "/home/celso/waeForms/media",
 	"processCommands": false,
 	"showRepoLogs": false,
 	"logEntriesToken": "175810ad-2a18-46b1-8b1b-b242603acd84"
